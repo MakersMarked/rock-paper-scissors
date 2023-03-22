@@ -1,16 +1,20 @@
 
 
 
-function getComputerChoice (x) {
-    return Math.floor(Math.random(3) * x)+1
-}
-const x = getComputerChoice(3)
-   if (x===3) {
-    alert("Scissors");}
-    else if (x===2) {
-        alert("Rock");}
-   else {
-        alert("Paper")}
-   
 
-   console.log(x)
+
+
+
+
+
+
+function getComputerChoice() {
+    const choices = Math.floor(Math.random(3) * 3)+1
+    if (choices===3) {
+        console.log("Scissors")}
+    else if (choices===2) {
+        console.log("Rock")}
+    else {
+        console.log("Paper")}
+ }
+console.log(getComputerChoice())
