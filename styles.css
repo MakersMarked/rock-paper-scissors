@@ -1,0 +1,66 @@
+.H1 {
+    display: flex;
+    align-items: last baseline;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.containerBox {
+    display: flex;
+    background-color: lightblue;
+    border: solid blue 1px;
+    margin: 50px;
+    height: 500px;
+    flex-direction: column;
+    border-radius: 50px;
+    
+    
+    
+}
+
+.clicked {
+    transform: scale(1.2);
+    background-color: black;
+    border-radius: 15px;
+
+}
+button {
+    border-radius: 15px;
+    height: 50px;
+    width: 100px;
+    background-color: rgb(4, 140, 156);
+    box-shadow: 5px 10px black;
+}
+.userOptions {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 50px;
+
+}
+
+.cpuOptions {
+    display: flex;
+    flex: 1;
+    justify-content: space-between; 
+    align-items: last baseline;
+    padding: 50px;
+}
+.middleContent {
+    
+    font-size: 25px;
+    display: flex;
+    padding: 25px;
+    justify-content: space-around;
+    background-color: rgb(191, 253, 253);
+}
+.resultText {
+    border-radius: 50px;
+    flex: 1;
+    
+}
+.score {
+    justify-content: space-around;
+    flex: 1;
+}
