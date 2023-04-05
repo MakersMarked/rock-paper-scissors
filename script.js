@@ -1,16 +1,12 @@
 let playerScore = 0;
 let computerScore = 0;
 let sameChoice = 0;
-let playerRock = 'rock';
-let playerPaper = 'paper';
-let playerScissors = 'scissors'
+let playerSelection;
+let computerSelection;
 let computerRock = 'rock';
 let computerPaper = 'paper';
 let computerScissors = 'scissors';
-let playerSelection;
-let computerSelection;
-let gameScore = `Computer: ${computerScore} | Player: ${playerScore} | Ties: ${sameChoice}`
-const roundResult = playRound();
+const scoreCounter = document.querySelector('.scoreCounter');
 
 
 function getComputerChoice() {
@@ -63,6 +59,7 @@ function getComputerChoice() {
         }, 500 );
         playerSelection = playerScissors;
         playRound()});
+        
  } 
 
  playerChoice();
@@ -71,30 +68,62 @@ function getComputerChoice() {
  
 function playRound () {
     const computerSelection = getComputerChoice();
-    if (playerSelection===computerSelection) { 
-        sameChoice++;
-        return resultText.textContent = `It's a tie! You both chose ${playerSelection}.`
+    if (playerSelection==computerSelection) { 
+        sameChoice ++ ;
+
+        scoreCounter.textContent = `${gameScore}`;
+        resultText.textContent = `It's a tie! You both chose ${playerSelection}. 
+        The score is now: Player: ${playerScore} to CPU: ${computerScore}`;
     }
     else if ((playerSelection == playerPaper && computerSelection == computerRock)||
         playerSelection == playerScissors && computerSelection == computerPaper||
         playerSelection == playerRock && computerSelection == computerScissors){
-        playerScore++;
-        return resultText.textContent = `You win! ${playerSelection} beats ${computerSelection}.`       
+        playerScore ++ ;
+        resultText.textContent = `You win! ${playerSelection} beats ${computerSelection}.
+        The score is now ${playerScore} to ${computerScore}`; 
+        
+        scoreCounter.textContent = `${gameScore}`;   
     }
     else if (playerSelection == playerPaper && computerSelection == computerScissors ||
         playerSelection == playerRock && computerSelection == computerPaper ||
         playerSelection == playerScissors && computerSelection == computerRock) {
-           computerScore++;
-        return resultText.textContent = `You lose! ${computerSelection} beats ${playerSelection}`     
-    } 
+           computerScore ++ ;
+           scoreCounter.textContent = `${gameScore}`;
+            
+        resultText.textContent = `You lose! ${computerSelection} beats ${playerSelection}
+        The score is now ${playerScore} to ${computerScore}`; 
+            
+    }
+    if (playerScore==5) {
+        const modal = document.querySelector('.modal');
+        modal.showModal();
+        const gameSummary = document.querySelector('.gameSummary');
+        gameSummary.textContent = 'You win, Congratulations!'
+        const scoreSummaryPlayer = document.querySelector('.scoreSummaryPlayer');
+        scoreSummaryPlayer.textContent = `Player Score: ${playerScore}`;
+        const scoreSummaryCpu = document.querySelector('.scoreSummaryCpu');
+        scoreSummaryCpu.textContent = `Computer Score: ${computerScore}`
+    }
+    else if (computerScore == 5) {
+        const modal = document.querySelector('.modal');
+        modal.showModal();
+        const gameSummary = document.querySelector('.gameSummary');
+        gameSummary.textContent = 'You lose, Loser!'
+        const scoreSummaryPlayer = document.querySelector('.scoreSummaryPlayer');
+        scoreSummaryPlayer.textContent = `Player Score: ${playerScore}`;
+        const scoreSummaryCpu = document.querySelector('.scoreSummaryCpu');
+        scoreSummaryCpu.textContent = `Computer Score: ${computerScore}`  
+    }
 }  
 
-
-
+let gameScore = `Computer: ${computerScore} | Player: ${playerScore} | Ties: ${sameChoice}`
+let playerRock = 'rock';
+let playerPaper = 'paper';
+let playerScissors = 'scissors'
+const roundResult = playRound();
 const containerBox = document.querySelector('.containerBox');
-const resultText = document.querySelector('.resultText')
-const score = document.querySelector('.score')
-score.textContent = gameScore
+const resultText = document.querySelector('.resultText');
+
 
 
 

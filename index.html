@@ -5,31 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jordan's Rock Paper Scissors</title>
-    <script src="script.js" defer></script>
+    
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <H1 class ="H1">Rock, Paper, Scissors</H1>
+    
     <div class = "containerBox" id="container">
+        <H1 class ="H1">Rock, Paper, Scissors</H1>
+        <H2 class ="H2">Player Choices</H2>
         <div class="userOptions">
+            
             <button id="paperButton">Paper</button>
             <button id="rockButton">Rock</button>
             <button id="scissorsButton">Scissors</button>
         </div>
         <div class = "middleContent">  
             <div class = "resultText"></div>
-            <div class = "score"></div>
+            <div class = "scoreCounter"></div>
         </div>  
+        <H2 class ="H2">CPU Choices</H2>
         <div class="cpuOptions">
             <button id = "cpuPaperButton">Paper</button>
             <button id = "cpuRockButton">Rock</button>
             <button id ="cpuScissorsButton">Scissors</button>
         </div>
-
-
+        
 
 
     </div>
-
+    <dialog class = "modal">
+        <h1 class ="gameSummary"> </h1>
+        <div class="finalScore">
+            <h3 class="scoreSummaryPlayer"></h3>
+            <h3 class="scoreSummaryCpu"></h3>
+        </div>
+        <div class="refreshGame">
+            <button onclick="history.go(0)" class="refresh>">Play Again</button>
+        </div>
+    </dialog>
 </body>
+<script src="script.js" defer></script>
 </html>
